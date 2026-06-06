@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Informations L&eacute;gales &mdash; MaisonChic</title>
+<meta name="description" content="Conditions g&eacute;n&eacute;rales de vente, mentions l&eacute;gales, politique de confidentialit&eacute; et politique de remboursement de MaisonChic.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --brand: #2d6a4f;
+  --brand-dark: #1b4332;
+  --brand-light: #b7e4c7;
+  --brand-bg: #f0faf4;
+  --accent: #d00000;
+  --gold: #f59e0b;
+  --text: #1a1a2e;
+  --text-muted: #6b7280;
+  --text-light: #9ca3af;
+  --bg: #ffffff;
+  --bg-alt: #f9fafb;
+  --border: #e5e7eb;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,.06);
+  --shadow-md: 0 4px 16px rgba(0,0,0,.08);
+  --radius: 8px;
+  --radius-lg: 12px;
+  --max-w: 1200px;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+body { font-family: 'Inter', -apple-system, sans-serif; color: var(--text); background: var(--bg); font-size: 14px; line-height: 1.6; }
+img { display: block; max-width: 100%; }
+a { text-decoration: none; color: inherit; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
+
+.announce {
+  background: var(--brand-dark);
+  color: white;
+  text-align: center;
+  padding: 10px 16px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: .3px;
+}
+.announce strong { font-weight: 700; }
+
+.header {
+  background: white;
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.header-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  height: 60px;
+}
+.header-left { display: flex; align-items: center; gap: 32px; }
+.logo {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--brand-dark);
+  letter-spacing: -.5px;
+}
+.logo span { font-weight: 400; color: var(--text-muted); }
+.nav-links { display: flex; gap: 24px; }
+.nav-links a {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+  transition: color .2s;
+}
+.nav-links a:hover { color: var(--text); }
+.nav-links a.active { color: var(--brand-dark); font-weight: 600; }
+
+.page-hero {
+  background: var(--brand-bg);
+  padding: 48px 24px;
+  text-align: center;
+}
+.page-hero h1 {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--brand-dark);
+  margin-bottom: 8px;
+}
+.page-hero p {
+  font-size: 15px;
+  color: var(--text-muted);
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.legal-container {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 48px 24px;
+}
+
+/* CSS-only tabs using radio buttons */
+.tabs-input { display: none; }
+.tabs-nav {
+  display: flex;
+  gap: 0;
+  border-bottom: 2px solid var(--border);
+  margin-bottom: 32px;
+  overflow-x: auto;
+}
+.tabs-nav label {
+  padding: 12px 20px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-muted);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  transition: color .2s, border-color .2s;
+  white-space: nowrap;
+}
+.tabs-nav label:hover { color: var(--text); }
+
+.tab-panel { display: none; }
+
+#tab-cgv:checked ~ .tabs-nav label[for="tab-cgv"],
+#tab-mentions:checked ~ .tabs-nav label[for="tab-mentions"],
+#tab-confidentialite:checked ~ .tabs-nav label[for="tab-confidentialite"],
+#tab-remboursement:checked ~ .tabs-nav label[for="tab-remboursement"] {
+  color: var(--brand-dark);
+  border-bottom-color: var(--brand);
+}
+
+#tab-cgv:checked ~ .tab-panel-cgv,
+#tab-mentions:checked ~ .tab-panel-mentions,
+#tab-confidentialite:checked ~ .tab-panel-confidentialite,
+#tab-remboursement:checked ~ .tab-panel-remboursement {
+  display: block;
+}
+
+.legal-content h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--brand-dark);
+  margin-bottom: 20px;
+}
+.legal-content h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text);
+  margin: 24px 0 12px;
+}
+.legal-content p {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.8;
+  margin-bottom: 14px;
+}
+.legal-content ul {
+  margin: 0 0 14px 20px;
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 1.8;
+}
+.legal-content li { margin-bottom: 4px; }
+.legal-content strong { color: var(--text); }
+
+.legal-updated {
+  font-size: 12px;
+  color: var(--text-light);
+  margin-top: 32px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+footer {
+  background: var(--bg-alt);
+  border-top: 1px solid var(--border);
+  padding: 48px 24px 24px;
+  margin-top: 48px;
+}
+.footer-inner { max-width: var(--max-w); margin: 0 auto; }
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1.5fr;
+  gap: 32px;
+  margin-bottom: 32px;
+}
+.footer-brand .logo { margin-bottom: 12px; }
+.footer-brand p { font-size: 13px; color: var(--text-muted); line-height: 1.6; max-width: 280px; }
+.footer-col h4 {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  margin-bottom: 16px;
+  color: var(--text);
+}
+.footer-col a {
+  display: block;
+  font-size: 13px;
+  color: var(--text-muted);
+  padding: 4px 0;
+  transition: color .2s;
+}
+.footer-col a:hover { color: var(--text); }
+.footer-newsletter h4 {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  margin-bottom: 12px;
+}
+.footer-newsletter p { font-size: 13px; color: var(--text-muted); margin-bottom: 12px; }
+.newsletter-form { display: flex; gap: 8px; }
+.newsletter-form input {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 13px;
+  font-family: inherit;
+}
+.newsletter-form button {
+  background: var(--brand);
+  color: white;
+  padding: 8px 16px;
+  border-radius: var(--radius);
+  font-weight: 600;
+  font-size: 13px;
+}
+.footer-bottom {
+  border-top: 1px solid var(--border);
+  padding-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.footer-copy { font-size: 12px; color: var(--text-light); }
+.footer-pays { display: flex; gap: 8px; }
+.footer-pay {
+  font-size: 10px;
+  font-weight: 700;
+  background: white;
+  border: 1px solid var(--border);
+  padding: 4px 8px;
+  border-radius: 4px;
+  color: var(--text-muted);
+}
+.footer-links { display: flex; gap: 16px; }
+.footer-links a { font-size: 12px; color: var(--text-light); }
+.footer-links a:hover { color: var(--text-muted); text-decoration: underline; }
+
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .page-hero h1 { font-size: 24px; }
+  .page-hero { padding: 32px 16px; }
+  .tabs-nav label { padding: 10px 14px; font-size: 12px; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
+}
+@media (max-width: 480px) {
+  .tabs-nav { gap: 0; }
+  .tabs-nav label { padding: 10px 10px; font-size: 11px; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; }
+}
+</style>
+</head>
+<body>
+
+<div class="announce">
+  <strong>Livraison Gratuite</strong> en France  &bull; Satisfait ou Rembours&eacute; 30 Jours
+</div>
+
+<header class="header">
+  <div class="header-inner">
+    <div class="header-left">
+      <a href="/" class="logo">Maison<span>Chic</span></a>
+      <nav class="nav-links">
+        <a href="/">Accueil</a>
+        <a href="/products-catalogue/">Produits</a>
+        <a href="/a-propos/">Qui Sommes-Nous</a>
+        <a href="/contact/">Contact</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<section class="page-hero">
+  <h1>Informations L&eacute;gales</h1>
+  <p>Retrouvez toutes nos conditions, mentions l&eacute;gales et politiques.</p>
+</section>
+
+<div class="legal-container">
+  <input type="radio" name="tabs" id="tab-cgv" class="tabs-input" checked>
+  <input type="radio" name="tabs" id="tab-mentions" class="tabs-input">
+  <input type="radio" name="tabs" id="tab-confidentialite" class="tabs-input">
+  <input type="radio" name="tabs" id="tab-remboursement" class="tabs-input">
+
+  <div class="tabs-nav">
+    <label for="tab-cgv">Conditions G&eacute;n&eacute;rales de Vente</label>
+    <label for="tab-mentions">Mentions L&eacute;gales</label>
+    <label for="tab-confidentialite">Confidentialit&eacute;</label>
+    <label for="tab-remboursement">Remboursement</label>
+  </div>
+
+  <!-- CGV -->
+  <div class="tab-panel tab-panel-cgv">
+    <div class="legal-content">
+      <h2>Conditions G&eacute;n&eacute;rales de Vente</h2>
+
+      <h3>Article 1 &mdash; Objet et champ d'application</h3>
+      <p>Les pr&eacute;sentes Conditions G&eacute;n&eacute;rales de Vente (ci-apr&egrave;s &laquo;&nbsp;CGV&nbsp;&raquo;) s'appliquent &agrave; toute commande pass&eacute;e sur le site internet maisonchic.shop (ci-apr&egrave;s &laquo;&nbsp;le Site&nbsp;&raquo;), exploit&eacute; par la soci&eacute;t&eacute; MaisonChic SARL. Toute commande implique l'acceptation sans r&eacute;serve des pr&eacute;sentes CGV par le client. MaisonChic se r&eacute;serve le droit de modifier les CGV &agrave; tout moment&nbsp;; les conditions applicables sont celles en vigueur au moment de la commande.</p>
+
+      <h3>Article 2 &mdash; Produits et prix</h3>
+      <p>Les produits propos&eacute;s &agrave; la vente sont d&eacute;crits et pr&eacute;sent&eacute;s avec la plus grande exactitude possible. Toutefois, des diff&eacute;rences mineures entre les photos et le produit r&eacute;el peuvent exister. Les prix sont indiqu&eacute;s en euros toutes taxes comprises (TTC), hors frais de livraison le cas &eacute;ch&eacute;ant. MaisonChic se r&eacute;serve le droit de modifier ses prix &agrave; tout moment, &eacute;tant entendu que le prix applicable est celui affich&eacute; au moment de la validation de la commande.</p>
+
+      <h3>Article 3 &mdash; Commande et paiement</h3>
+      <p>Le client passe commande en suivant le processus d'achat en ligne. Un r&eacute;capitulatif est pr&eacute;sent&eacute; avant validation d&eacute;finitive. Le paiement s'effectue par carte bancaire (Visa, Mastercard, American Express), PayPal ou Apple Pay via une connexion s&eacute;curis&eacute;e. La commande est confirm&eacute;e d&egrave;s r&eacute;ception du paiement int&eacute;gral. Un email de confirmation est envoy&eacute; au client dans les meilleurs d&eacute;lais.</p>
+
+      <h3>Article 4 &mdash; Livraison</h3>
+      <p>La livraison est effectu&eacute;e en France m&eacute;tropolitaine. Les d&eacute;lais de livraison indiqu&eacute;s sont donn&eacute;s &agrave; titre indicatif et ne constituent pas un engagement contractuel. MaisonChic s'engage &agrave; exp&eacute;dier les commandes sous 24 &agrave; 48 heures ouvr&eacute;es. La livraison standard est gratuite pour toutes les commandes. En cas de retard significatif, le client sera inform&eacute; par email et pourra, le cas &eacute;ch&eacute;ant, annuler sa commande.</p>
+
+      <h3>Article 5 &mdash; Droit de r&eacute;tractation</h3>
+      <p>Conform&eacute;ment aux articles L.221-18 et suivants du Code de la consommation, le client dispose d'un d&eacute;lai de quatorze (14) jours &agrave; compter de la r&eacute;ception du produit pour exercer son droit de r&eacute;tractation, sans avoir &agrave; justifier de motifs ni &agrave; payer de p&eacute;nalit&eacute;s. MaisonChic &eacute;tend ce d&eacute;lai &agrave; trente (30) jours pour offrir une exp&eacute;rience d'achat sereine. Les frais de retour restent &agrave; la charge du client, sauf en cas de produit d&eacute;fectueux ou non conforme.</p>
+
+      <p class="legal-updated">Derni&egrave;re mise &agrave; jour&nbsp;: 1er janvier 2026</p>
+    </div>
+  </div>
+
+  <!-- Mentions L&eacute;gales -->
+  <div class="tab-panel tab-panel-mentions">
+    <div class="legal-content">
+      <h2>Mentions L&eacute;gales</h2>
+
+      <h3>&Eacute;diteur du site</h3>
+      <p>Le site maisonchic.shop est &eacute;dit&eacute; par&nbsp;:</p>
+      <p>
+        <strong>MaisonChic SARL</strong><br>
+        Si&egrave;ge social&nbsp;: 2 Av. Flore, 95500 Le Thillay, France<br>
+        RCS Pontoise<br>
+        SIRET&nbsp;: 912 345 678 00012<br>
+        Num&eacute;ro de TVA intracommunautaire&nbsp;: FR12912345678<br>
+        Email&nbsp;: contact@maisonchic.shop<br>
+        T&eacute;l&eacute;phone&nbsp;: +33 1 51 91 51 14
+      </p>
+
+      <h3>Directeur de la publication</h3>
+      <p>Le directeur de la publication du site est le repr&eacute;sentant l&eacute;gal de la soci&eacute;t&eacute; MaisonChic SARL. Toute r&eacute;clamation relative au contenu du site peut &ecirc;tre adress&eacute;e par email &agrave; contact@maisonchic.shop ou par courrier &agrave; l'adresse du si&egrave;ge social mentionn&eacute;e ci-dessus.</p>
+
+      <h3>H&eacute;bergement</h3>
+      <p>Le site est h&eacute;berg&eacute; par OVH SAS, situ&eacute; au 2 rue Kellermann, 59100 Roubaix, France. T&eacute;l&eacute;phone&nbsp;: +33 9 72 10 10 07. En cas de litige relatif &agrave; l'h&eacute;bergement, le client peut contacter directement l'h&eacute;bergeur aux coordonn&eacute;es indiqu&eacute;es.</p>
+
+      <h3>Propri&eacute;t&eacute; intellectuelle</h3>
+      <p>L'ensemble du contenu du site (textes, images, graphismes, logo, ic&ocirc;nes, sons, logiciels) est la propri&eacute;t&eacute; exclusive de MaisonChic SARL ou de ses partenaires et est prot&eacute;g&eacute; par les lois fran&ccedil;aises et internationales relatives &agrave; la propri&eacute;t&eacute; intellectuelle. Toute reproduction, repr&eacute;sentation, modification, publication ou adaptation de tout ou partie des &eacute;l&eacute;ments du site, quel que soit le moyen ou le proc&eacute;d&eacute; utilis&eacute;, est interdite sans autorisation &eacute;crite pr&eacute;alable de MaisonChic SARL.</p>
+
+      <h3>Litiges</h3>
+      <p>Les pr&eacute;sentes mentions l&eacute;gales sont soumises au droit fran&ccedil;ais. En cas de litige, et apr&egrave;s tentative de r&eacute;solution amiable, les tribunaux comp&eacute;tents de Pontoise seront seuls comp&eacute;tents. Conform&eacute;ment &agrave; l'article L.612-1 du Code de la consommation, le client peut recourir gratuitement au service de m&eacute;diation FEVAD (F&eacute;d&eacute;ration du e-commerce et de la vente &agrave; distance) dont les coordonn&eacute;es sont disponibles sur www.fevad.com.</p>
+
+      <p class="legal-updated">Derni&egrave;re mise &agrave; jour&nbsp;: 1er janvier 2026</p>
+    </div>
+  </div>
+
+  <!-- Politique de Confidentialit&eacute; -->
+  <div class="tab-panel tab-panel-confidentialite">
+    <div class="legal-content">
+      <h2>Politique de Confidentialit&eacute;</h2>
+
+      <h3>Responsable du traitement</h3>
+      <p>MaisonChic SARL, situ&eacute;e au 2 Av. Flore, 95500 Le Thillay, France, est responsable du traitement des donn&eacute;es personnelles collect&eacute;es sur le site maisonchic.shop. Nous nous engageons &agrave; prot&eacute;ger la vie priv&eacute;e de nos utilisateurs conform&eacute;ment au R&egrave;glement G&eacute;n&eacute;ral sur la Protection des Donn&eacute;es (RGPD &mdash; R&egrave;glement UE 2016/679) et &agrave; la loi Informatique et Libert&eacute;s du 6 janvier 1978 modifi&eacute;e.</p>
+
+      <h3>Donn&eacute;es collect&eacute;es</h3>
+      <p>Dans le cadre de votre utilisation du site et de vos commandes, nous sommes amen&eacute;s &agrave; collecter les donn&eacute;es suivantes&nbsp;:</p>
+      <ul>
+        <li><strong>Donn&eacute;es d'identification&nbsp;:</strong> nom, pr&eacute;nom, adresse email, num&eacute;ro de t&eacute;l&eacute;phone</li>
+        <li><strong>Donn&eacute;es de livraison&nbsp;:</strong> adresse postale compl&egrave;te</li>
+        <li><strong>Donn&eacute;es de navigation&nbsp;:</strong> adresse IP, type de navigateur, pages visit&eacute;es, dur&eacute;e de visite</li>
+        <li><strong>Donn&eacute;es de transaction&nbsp;:</strong> historique des commandes, montants (les donn&eacute;es bancaires ne sont jamais stock&eacute;es sur nos serveurs)</li>
+      </ul>
+
+      <h3>Finalit&eacute;s du traitement</h3>
+      <p>Vos donn&eacute;es sont collect&eacute;es pour les finalit&eacute;s suivantes&nbsp;: traitement et suivi de vos commandes, gestion de la relation client, envoi de communications commerciales (avec votre consentement), am&eacute;lioration de nos services et de l'exp&eacute;rience utilisateur, respect de nos obligations l&eacute;gales et comptables. La base l&eacute;gale du traitement est l'ex&eacute;cution du contrat de vente, le consentement de l'utilisateur ou l'int&eacute;r&ecirc;t l&eacute;gitime de MaisonChic.</p>
+
+      <h3>Dur&eacute;e de conservation</h3>
+      <p>Les donn&eacute;es relatives aux commandes sont conserv&eacute;es pendant une dur&eacute;e de cinq (5) ans &agrave; compter de la derni&egrave;re commande, conform&eacute;ment aux obligations l&eacute;gales. Les donn&eacute;es de navigation (cookies) sont conserv&eacute;es pour une dur&eacute;e maximale de treize (13) mois. Vous pouvez &agrave; tout moment paramétrer votre navigateur pour refuser les cookies.</p>
+
+      <h3>Vos droits</h3>
+      <p>Conform&eacute;ment au RGPD, vous disposez des droits suivants&nbsp;: droit d'acc&egrave;s, de rectification, d'effacement, de limitation du traitement, de portabilit&eacute; de vos donn&eacute;es et d'opposition au traitement. Pour exercer ces droits, contactez-nous &agrave; contact@maisonchic.shop ou par courrier au si&egrave;ge social. Nous r&eacute;pondrons dans un d&eacute;lai maximal de trente (30) jours. Vous disposez &eacute;galement du droit d'introduire une r&eacute;clamation aupr&egrave;s de la CNIL (Commission Nationale de l'Informatique et des Libert&eacute;s).</p>
+
+      <p class="legal-updated">Derni&egrave;re mise &agrave; jour&nbsp;: 1er janvier 2026</p>
+    </div>
+  </div>
+
+  <!-- Politique de Remboursement -->
+  <div class="tab-panel tab-panel-remboursement">
+    <div class="legal-content">
+      <h2>Politique de Remboursement</h2>
+
+      <h3>D&eacute;lai de retour</h3>
+      <p>MaisonChic vous offre un d&eacute;lai de trente (30) jours &agrave; compter de la r&eacute;ception de votre commande pour retourner tout article qui ne vous conviendrait pas. Ce d&eacute;lai &eacute;tendu d&eacute;passe les obligations l&eacute;gales de 14 jours et t&eacute;moigne de notre engagement envers votre satisfaction. Pass&eacute; ce d&eacute;lai, aucune demande de retour ne pourra &ecirc;tre accept&eacute;e.</p>
+
+      <h3>Conditions de retour</h3>
+      <p>Pour &ecirc;tre &eacute;ligible au retour, l'article doit r&eacute;pondre aux conditions suivantes&nbsp;:</p>
+      <ul>
+        <li>Le produit doit &ecirc;tre dans son &eacute;tat d'origine, non utilis&eacute; et non endommag&eacute;</li>
+        <li>L'emballage d'origine doit &ecirc;tre intact avec toutes les &eacute;tiquettes</li>
+        <li>Le produit doit &ecirc;tre accompagn&eacute; de la preuve d'achat (email de confirmation ou facture)</li>
+        <li>Les articles personnalis&eacute;s, p&eacute;rissables ou d'hygi&egrave;ne descell&eacute;s ne sont pas retournables</li>
+      </ul>
+
+      <h3>Proc&eacute;dure de retour</h3>
+      <p>Pour initier un retour, contactez notre service client &agrave; contact@maisonchic.shop en indiquant votre num&eacute;ro de commande et le motif du retour. Notre &eacute;quipe vous fournira une autorisation de retour et les instructions d'exp&eacute;dition sous 48 heures. Les frais de retour sont &agrave; la charge du client, sauf en cas de produit d&eacute;fectueux ou d'erreur de notre part, auquel cas MaisonChic prend en charge l'int&eacute;gralit&eacute; des frais.</p>
+
+      <h3>Traitement du remboursement</h3>
+      <p>D&egrave;s r&eacute;ception et v&eacute;rification de l'article retourn&eacute;, nous proc&eacute;derons au remboursement dans un d&eacute;lai de cinq (5) &agrave; dix (10) jours ouvr&eacute;s. Le remboursement sera effectu&eacute; via le m&ecirc;me moyen de paiement que celui utilis&eacute; lors de la commande. Vous recevrez un email de confirmation une fois le remboursement &eacute;mis. Veuillez noter que le d&eacute;lai d'apparition sur votre relev&eacute; bancaire peut varier selon votre &eacute;tablissement.</p>
+
+      <h3>Produits d&eacute;fectueux ou non conformes</h3>
+      <p>Si vous recevez un produit d&eacute;fectueux ou non conforme &agrave; votre commande, veuillez nous contacter imm&eacute;diatement avec des photos du produit et de l'emballage. Nous organiserons le retour &agrave; nos frais et proc&eacute;derons, selon votre pr&eacute;f&eacute;rence, au remplacement du produit ou au remboursement int&eacute;gral, frais de livraison inclus. Notre garantie couvre les d&eacute;fauts de fabrication pendant une dur&eacute;e de deux (2) ans conform&eacute;ment &agrave; la garantie l&eacute;gale de conformit&eacute;.</p>
+
+      <p class="legal-updated">Derni&egrave;re mise &agrave; jour&nbsp;: 1er janvier 2026</p>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">Maison<span>Chic</span></div>
+        <p>Votre boutique en ligne d'&eacute;quipements maison, cuisine &amp; jardin. Des produits s&eacute;lectionn&eacute;s pour am&eacute;liorer votre quotidien, livr&eacute;s chez vous.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Boutique</h4>
+        <a href="/products-catalogue/">Tous nos produits</a>
+        <a href="/products-catalogue/">Cuisine</a>
+        <a href="/products-catalogue/">Maison</a>
+        <a href="/products-catalogue/">Jardin</a>
+      </div>
+      <div class="footer-col">
+        <h4>Informations</h4>
+        <a href="/a-propos/">Qui Sommes-Nous</a>
+        <a href="/policies/">Livraison &amp; Retours</a>
+        <a href="/contact/">Contactez-Nous</a>
+        <a href="/contact/">Suivre mon colis</a>
+      </div>
+      <div class="footer-newsletter">
+        <h4>Newsletter</h4>
+        <p>Inscrivez-vous pour recevoir nos offres exclusives.</p>
+        <form class="newsletter-form" onsubmit="this.querySelector('button').textContent='Merci !';return false">
+          <input type="email" placeholder="Votre email">
+          <button type="submit">OK</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">&copy; 2026 MaisonChic SARL &mdash; 2 Av. Flore, 95500 Le Thillay, France</span>
+      <div class="footer-pays">
+        <span class="footer-pay">VISA</span>
+        <span class="footer-pay">MC</span>
+        <span class="footer-pay">AMEX</span>
+        <span class="footer-pay">PayPal</span>
+        <span class="footer-pay">Apple Pay</span>
+      </div>
+      <div class="footer-links">
+        <a href="/policies/">CGV</a>
+        <a href="/policies/">Mentions l&eacute;gales</a>
+        <a href="/policies/">Confidentialit&eacute;</a>
+        <a href="/policies/">Remboursement</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

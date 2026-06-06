@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Qui Sommes-Nous &mdash; MaisonChic</title>
+<meta name="description" content="D&eacute;couvrez MaisonChic : notre histoire, nos valeurs et nos engagements pour vous offrir les meilleurs produits maison, cuisine et jardin.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --brand: #2d6a4f;
+  --brand-dark: #1b4332;
+  --brand-light: #b7e4c7;
+  --brand-bg: #f0faf4;
+  --accent: #d00000;
+  --gold: #f59e0b;
+  --text: #1a1a2e;
+  --text-muted: #6b7280;
+  --text-light: #9ca3af;
+  --bg: #ffffff;
+  --bg-alt: #f9fafb;
+  --border: #e5e7eb;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,.06);
+  --shadow-md: 0 4px 16px rgba(0,0,0,.08);
+  --radius: 8px;
+  --radius-lg: 12px;
+  --max-w: 1200px;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+body { font-family: 'Inter', -apple-system, sans-serif; color: var(--text); background: var(--bg); font-size: 14px; line-height: 1.6; }
+img { display: block; max-width: 100%; }
+a { text-decoration: none; color: inherit; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
+
+.announce {
+  background: var(--brand-dark);
+  color: white;
+  text-align: center;
+  padding: 10px 16px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: .3px;
+}
+.announce strong { font-weight: 700; }
+
+.header {
+  background: white;
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.header-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  height: 60px;
+}
+.header-left { display: flex; align-items: center; gap: 32px; }
+.logo {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--brand-dark);
+  letter-spacing: -.5px;
+}
+.logo span { font-weight: 400; color: var(--text-muted); }
+.nav-links { display: flex; gap: 24px; }
+.nav-links a {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+  transition: color .2s;
+}
+.nav-links a:hover { color: var(--text); }
+.nav-links a.active { color: var(--brand-dark); font-weight: 600; }
+
+.section { max-width: var(--max-w); margin: 0 auto; padding: 48px 24px; }
+
+.page-hero {
+  background: var(--brand-bg);
+  padding: 48px 24px;
+  text-align: center;
+}
+.page-hero h1 {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--brand-dark);
+  margin-bottom: 8px;
+}
+.page-hero p {
+  font-size: 15px;
+  color: var(--text-muted);
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.story {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 56px 24px;
+  text-align: center;
+}
+.story h2 {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--brand-dark);
+  margin-bottom: 20px;
+}
+.story p {
+  font-size: 15px;
+  color: var(--text-muted);
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+
+.engagements {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 24px 56px;
+}
+.engagements h2 {
+  font-size: 24px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 36px;
+  color: var(--brand-dark);
+}
+.engagements-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.engagement-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 32px 24px;
+  text-align: center;
+  background: white;
+  transition: box-shadow .2s, transform .2s;
+}
+.engagement-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+.engagement-icon {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--brand-bg);
+  border-radius: 50%;
+  margin: 0 auto 20px;
+}
+.engagement-icon svg { width: 24px; height: 24px; stroke: var(--brand); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.engagement-card h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 10px;
+}
+.engagement-card p {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.values {
+  background: var(--bg-alt);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 56px 24px;
+}
+.values-inner {
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: center;
+}
+.values-inner h2 {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--brand-dark);
+  margin-bottom: 20px;
+}
+.values-inner p {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.8;
+  margin-bottom: 12px;
+}
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 32px;
+}
+.stat-item { text-align: center; }
+.stat-number {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--brand);
+  display: block;
+}
+.stat-label {
+  font-size: 13px;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+footer {
+  background: var(--bg-alt);
+  border-top: 1px solid var(--border);
+  padding: 48px 24px 24px;
+  margin-top: 48px;
+}
+.footer-inner { max-width: var(--max-w); margin: 0 auto; }
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1.5fr;
+  gap: 32px;
+  margin-bottom: 32px;
+}
+.footer-brand .logo { margin-bottom: 12px; }
+.footer-brand p { font-size: 13px; color: var(--text-muted); line-height: 1.6; max-width: 280px; }
+.footer-col h4 {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  margin-bottom: 16px;
+  color: var(--text);
+}
+.footer-col a {
+  display: block;
+  font-size: 13px;
+  color: var(--text-muted);
+  padding: 4px 0;
+  transition: color .2s;
+}
+.footer-col a:hover { color: var(--text); }
+.footer-newsletter h4 {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  margin-bottom: 12px;
+}
+.footer-newsletter p { font-size: 13px; color: var(--text-muted); margin-bottom: 12px; }
+.newsletter-form { display: flex; gap: 8px; }
+.newsletter-form input {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 13px;
+  font-family: inherit;
+}
+.newsletter-form button {
+  background: var(--brand);
+  color: white;
+  padding: 8px 16px;
+  border-radius: var(--radius);
+  font-weight: 600;
+  font-size: 13px;
+}
+.footer-bottom {
+  border-top: 1px solid var(--border);
+  padding-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.footer-copy { font-size: 12px; color: var(--text-light); }
+.footer-pays { display: flex; gap: 8px; }
+.footer-pay {
+  font-size: 10px;
+  font-weight: 700;
+  background: white;
+  border: 1px solid var(--border);
+  padding: 4px 8px;
+  border-radius: 4px;
+  color: var(--text-muted);
+}
+.footer-links { display: flex; gap: 16px; }
+.footer-links a { font-size: 12px; color: var(--text-light); }
+.footer-links a:hover { color: var(--text-muted); text-decoration: underline; }
+
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .page-hero h1 { font-size: 24px; }
+  .page-hero { padding: 32px 16px; }
+  .engagements-grid { grid-template-columns: 1fr; gap: 16px; }
+  .stats-row { grid-template-columns: 1fr; gap: 16px; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
+}
+@media (max-width: 480px) {
+  .footer-grid { grid-template-columns: 1fr; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; }
+}
+</style>
+</head>
+<body>
+
+<div class="announce">
+  <strong>Livraison Gratuite</strong> en France  &bull; Satisfait ou Rembours&eacute; 30 Jours
+</div>
+
+<header class="header">
+  <div class="header-inner">
+    <div class="header-left">
+      <a href="/" class="logo">Maison<span>Chic</span></a>
+      <nav class="nav-links">
+        <a href="/">Accueil</a>
+        <a href="/products-catalogue/">Produits</a>
+        <a href="/a-propos/" class="active">Qui Sommes-Nous</a>
+        <a href="/contact/">Contact</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<section class="page-hero">
+  <h1>Qui Sommes-Nous</h1>
+  <p>D&eacute;couvrez l'histoire et les valeurs qui animent MaisonChic au quotidien.</p>
+</section>
+
+<section class="story">
+  <h2>Notre Histoire</h2>
+  <p>Fond&eacute;e en 2023, MaisonChic est n&eacute;e de la volont&eacute; de rendre accessibles des produits de qualit&eacute; pour la maison, la cuisine et le jardin. Notre &eacute;quipe s&eacute;lectionne avec soin chaque produit pour vous garantir le meilleur rapport qualit&eacute;-prix.</p>
+  <p>Nous croyons que chacun m&eacute;rite un int&eacute;rieur agr&eacute;able sans se ruiner. C'est pourquoi nous parcourons les meilleurs fabricants pour d&eacute;nicher des articles qui allient esth&eacute;tique, fonctionnalit&eacute; et durabilit&eacute;, le tout &agrave; des prix justes.</p>
+</section>
+
+<section class="engagements">
+  <h2>Nos Engagements</h2>
+  <div class="engagements-grid">
+    <div class="engagement-card">
+      <div class="engagement-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <h3>Qualit&eacute; Garantie</h3>
+      <p>Chaque produit est rigoureusement s&eacute;lectionn&eacute; et test&eacute; par notre &eacute;quipe. Nous ne proposons que des articles qui r&eacute;pondent &agrave; nos standards de qualit&eacute; exigeants, pour que vous puissiez acheter en toute confiance.</p>
+    </div>
+    <div class="engagement-card">
+      <div class="engagement-icon">
+        <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+      </div>
+      <h3>Livraison Rapide</h3>
+      <p>Vos commandes sont exp&eacute;di&eacute;es sous 24 &agrave; 48h et livr&eacute;es directement chez vous. La livraison est gratuite en France m&eacute;tropolitaine, sans minimum d'achat. Suivez votre colis en temps r&eacute;el.</p>
+    </div>
+    <div class="engagement-card">
+      <div class="engagement-icon">
+        <svg viewBox="0 0 24 24"><path d="M14 9V5a3 3 0 00-6 0v4"/><rect x="2" y="9" width="20" height="13" rx="2" ry="2"/><path d="M12 17a1 1 0 100-2 1 1 0 000 2z"/></svg>
+      </div>
+      <h3>Satisfaction Client</h3>
+      <p>Votre satisfaction est notre priorit&eacute;. B&eacute;n&eacute;ficiez d'une politique de retour de 30 jours, d'un paiement 100% s&eacute;curis&eacute; et d'un service client r&eacute;actif disponible du lundi au vendredi.</p>
+    </div>
+  </div>
+</section>
+
+<section class="values">
+  <div class="values-inner">
+    <h2>MaisonChic en Chiffres</h2>
+    <p>Depuis notre lancement, nous avons eu le privil&egrave;ge d'accompagner des milliers de foyers fran&ccedil;ais dans l'am&eacute;lioration de leur quotidien.</p>
+    <div class="stats-row">
+      <div class="stat-item">
+        <span class="stat-number">10 000+</span>
+        <span class="stat-label">Clients satisfaits</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">500+</span>
+        <span class="stat-label">Produits s&eacute;lectionn&eacute;s</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">4.7/5</span>
+        <span class="stat-label">Note moyenne</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">Maison<span>Chic</span></div>
+        <p>Votre boutique en ligne d'&eacute;quipements maison, cuisine &amp; jardin. Des produits s&eacute;lectionn&eacute;s pour am&eacute;liorer votre quotidien, livr&eacute;s chez vous.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Boutique</h4>
+        <a href="/products-catalogue/">Tous nos produits</a>
+        <a href="/products-catalogue/">Cuisine</a>
+        <a href="/products-catalogue/">Maison</a>
+        <a href="/products-catalogue/">Jardin</a>
+      </div>
+      <div class="footer-col">
+        <h4>Informations</h4>
+        <a href="/a-propos/">Qui Sommes-Nous</a>
+        <a href="/policies/">Livraison &amp; Retours</a>
+        <a href="/contact/">Contactez-Nous</a>
+        <a href="/contact/">Suivre mon colis</a>
+      </div>
+      <div class="footer-newsletter">
+        <h4>Newsletter</h4>
+        <p>Inscrivez-vous pour recevoir nos offres exclusives.</p>
+        <form class="newsletter-form" onsubmit="this.querySelector('button').textContent='Merci !';return false">
+          <input type="email" placeholder="Votre email">
+          <button type="submit">OK</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">&copy; 2026 MaisonChic SARL &mdash; 2 Av. Flore, 95500 Le Thillay, France</span>
+      <div class="footer-pays">
+        <span class="footer-pay">VISA</span>
+        <span class="footer-pay">MC</span>
+        <span class="footer-pay">AMEX</span>
+        <span class="footer-pay">PayPal</span>
+        <span class="footer-pay">Apple Pay</span>
+      </div>
+      <div class="footer-links">
+        <a href="/policies/">CGV</a>
+        <a href="/policies/">Mentions l&eacute;gales</a>
+        <a href="/policies/">Confidentialit&eacute;</a>
+        <a href="/policies/">Remboursement</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

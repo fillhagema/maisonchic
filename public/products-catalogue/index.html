@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nos Produits &mdash; MaisonChic</title>
+<meta name="description" content="D&eacute;couvrez notre s&eacute;lection de produits maison, cuisine et jardin. Livraison gratuite en France.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --brand: #2d6a4f;
+  --brand-dark: #1b4332;
+  --brand-light: #b7e4c7;
+  --brand-bg: #f0faf4;
+  --accent: #d00000;
+  --gold: #f59e0b;
+  --text: #1a1a2e;
+  --text-muted: #6b7280;
+  --text-light: #9ca3af;
+  --bg: #ffffff;
+  --bg-alt: #f9fafb;
+  --border: #e5e7eb;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,.06);
+  --shadow-md: 0 4px 16px rgba(0,0,0,.08);
+  --radius: 8px;
+  --radius-lg: 12px;
+  --max-w: 1200px;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+body { font-family: 'Inter', -apple-system, sans-serif; color: var(--text); background: var(--bg); font-size: 14px; line-height: 1.6; }
+img { display: block; max-width: 100%; }
+a { text-decoration: none; color: inherit; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
+
+.announce { background: var(--brand-dark); color: white; text-align: center; padding: 10px 16px; font-size: 12px; font-weight: 500; letter-spacing: .3px; }
+.announce strong { font-weight: 700; }
+.header { background: white; border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
+.header-inner { max-width: var(--max-w); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 0 24px; height: 60px; }
+.header-left { display: flex; align-items: center; gap: 32px; }
+.logo { font-size: 20px; font-weight: 700; color: var(--brand-dark); letter-spacing: -.5px; }
+.logo span { font-weight: 400; color: var(--text-muted); }
+.nav-links { display: flex; gap: 24px; }
+.nav-links a { font-size: 13px; font-weight: 500; color: var(--text-muted); transition: color .2s; }
+.nav-links a:hover { color: var(--text); }
+.nav-links a.active { color: var(--brand-dark); font-weight: 600; }
+
+.page-header { background: var(--brand-bg); padding: 40px 24px; text-align: center; }
+.page-header h1 { font-size: 28px; font-weight: 700; color: var(--brand-dark); margin-bottom: 8px; }
+.page-header p { font-size: 15px; color: var(--text-muted); }
+
+.section { max-width: var(--max-w); margin: 0 auto; padding: 40px 24px; }
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 24px;
+}
+.product-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: box-shadow .2s, transform .2s;
+  background: white;
+}
+.product-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+.product-card-img { width: 100%; aspect-ratio: 1; object-fit: cover; background: var(--bg-alt); }
+.product-card-body { padding: 16px; }
+.product-card-name { font-size: 14px; font-weight: 600; margin-bottom: 8px; line-height: 1.3; }
+.product-card-price { font-size: 18px; font-weight: 700; color: var(--accent); }
+.product-card-price .original { font-size: 13px; color: var(--text-light); text-decoration: line-through; font-weight: 400; margin-left: 8px; }
+.product-card-btn {
+  display: block; text-align: center; background: var(--brand); color: white;
+  padding: 10px; border-radius: var(--radius); font-weight: 600; font-size: 13px;
+  margin-top: 12px; transition: background .2s;
+}
+.product-card-btn:hover { background: var(--brand-dark); }
+
+footer { background: var(--bg-alt); border-top: 1px solid var(--border); padding: 48px 24px 24px; margin-top: 48px; }
+.footer-inner { max-width: var(--max-w); margin: 0 auto; }
+.footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1.5fr; gap: 32px; margin-bottom: 32px; }
+.footer-brand .logo { margin-bottom: 12px; }
+.footer-brand p { font-size: 13px; color: var(--text-muted); line-height: 1.6; max-width: 280px; }
+.footer-col h4 { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; margin-bottom: 16px; color: var(--text); }
+.footer-col a { display: block; font-size: 13px; color: var(--text-muted); padding: 4px 0; transition: color .2s; }
+.footer-col a:hover { color: var(--text); }
+.footer-newsletter h4 { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; margin-bottom: 12px; }
+.footer-newsletter p { font-size: 13px; color: var(--text-muted); margin-bottom: 12px; }
+.newsletter-form { display: flex; gap: 8px; }
+.newsletter-form input { flex: 1; padding: 8px 12px; border: 1px solid var(--border); border-radius: var(--radius); font-size: 13px; font-family: inherit; }
+.newsletter-form button { background: var(--brand); color: white; padding: 8px 16px; border-radius: var(--radius); font-weight: 600; font-size: 13px; }
+.footer-bottom { border-top: 1px solid var(--border); padding-top: 20px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; }
+.footer-copy { font-size: 12px; color: var(--text-light); }
+.footer-pays { display: flex; gap: 8px; }
+.footer-pay { font-size: 10px; font-weight: 700; background: white; border: 1px solid var(--border); padding: 4px 8px; border-radius: 4px; color: var(--text-muted); }
+.footer-links { display: flex; gap: 16px; }
+.footer-links a { font-size: 12px; color: var(--text-light); }
+.footer-links a:hover { color: var(--text-muted); text-decoration: underline; }
+
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .page-header h1 { font-size: 22px; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
+  .products-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+}
+@media (max-width: 480px) {
+  .footer-grid { grid-template-columns: 1fr; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; }
+}
+</style>
+</head>
+<body>
+
+<div class="announce">
+  <strong>Livraison Gratuite</strong> en France &bull; Satisfait ou Rembours&eacute; 30 Jours
+</div>
+
+<header class="header">
+  <div class="header-inner">
+    <div class="header-left">
+      <a href="/" class="logo">Maison<span>Chic</span></a>
+      <nav class="nav-links">
+        <a href="/">Accueil</a>
+        <a href="/products-catalogue/" class="active">Produits</a>
+        <a href="/a-propos/">Qui Sommes-Nous</a>
+        <a href="/contact/">Contact</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<div class="page-header">
+  <h1>Nos Produits</h1>
+  <p>D&eacute;couvrez notre s&eacute;lection d'&eacute;quipements maison, cuisine &amp; jardin</p>
+</div>
+
+<section class="section">
+  <div class="products-grid">
+
+    <a href="/tonnelle-de-jardin-3x3m-fr-fr/" class="product-card">
+      <img class="product-card-img" src="/tonnelle-de-jardin-3x3m-fr-fr/img/hero-blanc.jpg" alt="Tonnelle de Jardin Pliable 3x3m" onerror="this.style.display='none'">
+      <div class="product-card-body">
+        <div class="product-card-name">Tonnelle de Jardin Pliable 3x3m</div>
+        <div class="product-card-price">19,99&euro; <span class="original">59,99&euro;</span></div>
+        <span class="product-card-btn">Voir le produit</span>
+      </div>
+    </a>
+
+    <a href="/machine-caf-nespresso-inissia-100-capsules-fr-fr/" class="product-card">
+      <img class="product-card-img" src="/machine-caf-nespresso-inissia-100-capsules-fr-fr/img/rouge.jpg" alt="Machine Nespresso INISSIA + 100 Capsules" onerror="this.style.display='none'">
+      <div class="product-card-body">
+        <div class="product-card-name">Machine Nespresso INISSIA + 100 Capsules</div>
+        <div class="product-card-price">19,99&euro; <span class="original">59,99&euro;</span></div>
+        <span class="product-card-btn">Voir le produit</span>
+      </div>
+    </a>
+
+    <a href="/table-pliante-de-pique-nique-180x75x72cm-fr-fr/" class="product-card">
+      <img class="product-card-img" src="/table-pliante-de-pique-nique-180x75x72cm-fr-fr/img/variant-1.jpg" alt="Table Pliante de Pique Nique 180x75x72cm" onerror="this.style.display='none'">
+      <div class="product-card-body">
+        <div class="product-card-name">Table Pliante de Pique Nique 180x75x72cm</div>
+        <div class="product-card-price">19,99&euro; <span class="original">57,99&euro;</span></div>
+        <span class="product-card-btn">Voir le produit</span>
+      </div>
+    </a>
+
+    <a href="/2400w-plancha-lectrique-xxl-fr-fr/" class="product-card">
+      <img class="product-card-img" src="/2400w-plancha-lectrique-xxl-fr-fr/img/product-1.jpg" alt="Plancha &Eacute;lectrique XXL 2400W" onerror="this.style.display='none'">
+      <div class="product-card-body">
+        <div class="product-card-name">Plancha &Eacute;lectrique XXL 2400W</div>
+        <div class="product-card-price">19,99&euro; <span class="original">57,99&euro;</span></div>
+        <span class="product-card-btn">Voir le produit</span>
+      </div>
+    </a>
+
+    <a href="/parasol-de-jardin-270cm-fr/" class="product-card">
+      <img class="product-card-img" src="/parasol-de-jardin-270cm-fr/img/ref-1.jpg" alt="Parasol de Jardin Inclinable 270cm" onerror="this.style.display='none'">
+      <div class="product-card-body">
+        <div class="product-card-name">Parasol de Jardin Inclinable 270cm</div>
+        <div class="product-card-price">19,99&euro; <span class="original">49,99&euro;</span></div>
+        <span class="product-card-btn">Voir le produit</span>
+      </div>
+    </a>
+
+    <a href="/ensemble-de-bistrot-pliant-mobilier-de-jardin-en-m-tal-3-pi-ces-avec-1-table-et-2-chaises-r-sistant-aux-intemp-ries-et-aux-uv-pour-balcon-terrasse-et-jardin-rouge-brique-fr-fr/" class="product-card">
+      <img class="product-card-img" src="/ensemble-de-bistrot-pliant-mobilier-de-jardin-en-m-tal-3-pi-ces-avec-1-table-et-2-chaises-r-sistant-aux-intemp-ries-et-aux-uv-pour-balcon-terrasse-et-jardin-rouge-brique-fr-fr/img/variant-rouge.jpg" alt="Ensemble Bistrot Pliant 3 Pi&egrave;ces" onerror="this.style.display='none'">
+      <div class="product-card-body">
+        <div class="product-card-name">Ensemble Bistrot Pliant 3 Pi&egrave;ces</div>
+        <div class="product-card-price">19,99&euro; <span class="original">55,99&euro;</span></div>
+        <span class="product-card-btn">Voir le produit</span>
+      </div>
+    </a>
+
+    <a href="/bear-2l-1-8l-hachoir-lectrique-fr/" class="product-card">
+      <img class="product-card-img" src="/bear-2l-1-8l-hachoir-lectrique-fr/img/product-hero.jpg" alt="Bear Hachoir &Eacute;lectrique 2L" onerror="this.style.display='none'">
+      <div class="product-card-body">
+        <div class="product-card-name">Bear Hachoir &Eacute;lectrique 2L + 1.8L</div>
+        <div class="product-card-price">14,95&euro; <span class="original">52,99&euro;</span></div>
+        <span class="product-card-btn">Voir le produit</span>
+      </div>
+    </a>
+
+    <a href="/mixeur-plongeant/" class="product-card">
+      <img class="product-card-img" src="/mixeur-plongeant/img/ref-1.jpg" alt="Mixeur Plongeant Multifonction 1000W" onerror="this.style.display='none'">
+      <div class="product-card-body">
+        <div class="product-card-name">Mixeur Plongeant Multifonction 1000W</div>
+        <div class="product-card-price">9,99&euro; <span class="original">59,99&euro;</span></div>
+        <span class="product-card-btn">Voir le produit</span>
+      </div>
+    </a>
+
+    <a href="/12set-silicone/" class="product-card">
+      <img class="product-card-img" src="/img/set-ustensiles-de-cuisine-silicone-12-pi-ces/variant-1.jpg" alt="Set Ustensiles Cuisine Silicone 12 Pi&egrave;ces" onerror="this.style.display='none'">
+      <div class="product-card-body">
+        <div class="product-card-name">Set Ustensiles de Cuisine Silicone 12 Pi&egrave;ces</div>
+        <div class="product-card-price">14,95&euro; <span class="original">49,99&euro;</span></div>
+        <span class="product-card-btn">Voir le produit</span>
+      </div>
+    </a>
+
+    <a href="/milwaukee-power-combo-fr/" class="product-card">
+      <img class="product-card-img" src="/milwaukee-power-combo-fr/img/hero.jpg" alt="Milwaukee Power Combo" onerror="this.style.display='none'">
+      <div class="product-card-body">
+        <div class="product-card-name">Milwaukee&reg; Power Combo</div>
+        <div class="product-card-price">9,99&euro; <span class="original">199,00&euro;</span></div>
+        <span class="product-card-btn">Voir le produit</span>
+      </div>
+    </a>
+
+    <a href="/5-mini-kitten-figurines-fr/" class="product-card">
+      <img class="product-card-img" src="/5-mini-kitten-figurines-fr/img/product-1.jpg" alt="5 Mini Kitten Figurines" onerror="this.style.display='none'">
+      <div class="product-card-body">
+        <div class="product-card-name">5 Mini Kitten Figurines</div>
+        <div class="product-card-price">6,99&euro; <span class="original">27,99&euro;</span></div>
+        <span class="product-card-btn">Voir le produit</span>
+      </div>
+    </a>
+
+    <a href="/coupe-du-monde/" class="product-card">
+      <img class="product-card-img" src="/coupe-du-monde/img/product-1.jpg" alt="Maquillage Drapeau Coupe du Monde" onerror="this.style.display='none'">
+      <div class="product-card-body">
+        <div class="product-card-name">B&acirc;ton Maquillage Drapeau &ndash; Coupe du Monde</div>
+        <div class="product-card-price">9,99&euro; <span class="original">19,99&euro;</span></div>
+        <span class="product-card-btn">Voir le produit</span>
+      </div>
+    </a>
+
+
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">Maison<span>Chic</span></div>
+        <p>Votre boutique en ligne d'&eacute;quipements maison, cuisine &amp; jardin. Des produits s&eacute;lectionn&eacute;s pour am&eacute;liorer votre quotidien.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Boutique</h4>
+        <a href="/products-catalogue/">Tous nos produits</a>
+        <a href="/products-catalogue/">Cuisine</a>
+        <a href="/products-catalogue/">Maison</a>
+        <a href="/products-catalogue/">Jardin</a>
+      </div>
+      <div class="footer-col">
+        <h4>Informations</h4>
+        <a href="/a-propos/">Qui Sommes-Nous</a>
+        <a href="/policies/">Livraison &amp; Retours</a>
+        <a href="/contact/">Contactez-Nous</a>
+        <a href="/contact/">Suivre mon colis</a>
+      </div>
+      <div class="footer-newsletter">
+        <h4>Newsletter</h4>
+        <p>Inscrivez-vous pour recevoir nos offres exclusives.</p>
+        <form class="newsletter-form" onsubmit="this.querySelector('button').textContent='Merci !';return false">
+          <input type="email" placeholder="Votre email">
+          <button type="submit">OK</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">&copy; 2026 MaisonChic SARL &mdash; 2 Av. Flore, 95500 Le Thillay, France</span>
+      <div class="footer-pays">
+        <span class="footer-pay">VISA</span>
+        <span class="footer-pay">MC</span>
+        <span class="footer-pay">AMEX</span>
+        <span class="footer-pay">PayPal</span>
+        <span class="footer-pay">Apple Pay</span>
+      </div>
+      <div class="footer-links">
+        <a href="/policies/">CGV</a>
+        <a href="/policies/">Mentions l&eacute;gales</a>
+        <a href="/policies/">Confidentialit&eacute;</a>
+        <a href="/policies/">Remboursement</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

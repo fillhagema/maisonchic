@@ -1,0 +1,10 @@
+{
+  "name": "maisonchic-vercel-static",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "node scripts/build.js",
+    "start": "node scripts/serve.js"
+  },
+  "devDependencies": {}
+}

@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contactez-Nous &mdash; MaisonChic</title>
+<meta name="description" content="Contactez l'&eacute;quipe MaisonChic pour toute question sur vos commandes, nos produits ou notre service. R&eacute;ponse sous 24h.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --brand: #2d6a4f;
+  --brand-dark: #1b4332;
+  --brand-light: #b7e4c7;
+  --brand-bg: #f0faf4;
+  --accent: #d00000;
+  --gold: #f59e0b;
+  --text: #1a1a2e;
+  --text-muted: #6b7280;
+  --text-light: #9ca3af;
+  --bg: #ffffff;
+  --bg-alt: #f9fafb;
+  --border: #e5e7eb;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,.06);
+  --shadow-md: 0 4px 16px rgba(0,0,0,.08);
+  --radius: 8px;
+  --radius-lg: 12px;
+  --max-w: 1200px;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+body { font-family: 'Inter', -apple-system, sans-serif; color: var(--text); background: var(--bg); font-size: 14px; line-height: 1.6; }
+img { display: block; max-width: 100%; }
+a { text-decoration: none; color: inherit; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; }
+
+.announce {
+  background: var(--brand-dark);
+  color: white;
+  text-align: center;
+  padding: 10px 16px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: .3px;
+}
+.announce strong { font-weight: 700; }
+
+.header {
+  background: white;
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.header-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  height: 60px;
+}
+.header-left { display: flex; align-items: center; gap: 32px; }
+.logo {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--brand-dark);
+  letter-spacing: -.5px;
+}
+.logo span { font-weight: 400; color: var(--text-muted); }
+.nav-links { display: flex; gap: 24px; }
+.nav-links a {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+  transition: color .2s;
+}
+.nav-links a:hover { color: var(--text); }
+.nav-links a.active { color: var(--brand-dark); font-weight: 600; }
+
+.section { max-width: var(--max-w); margin: 0 auto; padding: 48px 24px; }
+.section-title {
+  font-size: 24px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 32px;
+  color: var(--brand-dark);
+}
+
+.page-hero {
+  background: var(--brand-bg);
+  padding: 48px 24px;
+  text-align: center;
+}
+.page-hero h1 {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--brand-dark);
+  margin-bottom: 8px;
+}
+.page-hero p {
+  font-size: 15px;
+  color: var(--text-muted);
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 48px;
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 48px 24px;
+}
+
+.contact-form { display: flex; flex-direction: column; gap: 20px; }
+.form-group { display: flex; flex-direction: column; gap: 6px; }
+.form-group label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+}
+.form-group input,
+.form-group textarea,
+.form-group select {
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 14px;
+  font-family: inherit;
+  color: var(--text);
+  background: white;
+  transition: border-color .2s;
+}
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--brand);
+}
+.form-group textarea { resize: vertical; min-height: 140px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form-submit {
+  display: inline-block;
+  background: var(--brand);
+  color: white;
+  padding: 12px 32px;
+  border-radius: var(--radius);
+  font-weight: 600;
+  font-size: 14px;
+  transition: background .2s;
+  border: none;
+  cursor: pointer;
+  align-self: flex-start;
+}
+.form-submit:hover { background: var(--brand-dark); }
+
+.form-success {
+  display: none;
+  background: var(--brand-bg);
+  border: 1px solid var(--brand-light);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  color: var(--brand-dark);
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.contact-sidebar { display: flex; flex-direction: column; gap: 24px; }
+.info-card {
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px 24px;
+}
+.info-card h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--brand-dark);
+  margin-bottom: 20px;
+}
+.info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.info-item:last-child { margin-bottom: 0; }
+.info-icon {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--brand-bg);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.info-icon svg { width: 16px; height: 16px; stroke: var(--brand); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.info-details { display: flex; flex-direction: column; gap: 2px; }
+.info-label { font-size: 12px; font-weight: 600; color: var(--text); text-transform: uppercase; letter-spacing: .3px; }
+.info-value { font-size: 13px; color: var(--text-muted); line-height: 1.5; }
+
+.response-note {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  text-align: center;
+}
+.response-note p {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+.response-note strong { color: var(--text); }
+
+footer {
+  background: var(--bg-alt);
+  border-top: 1px solid var(--border);
+  padding: 48px 24px 24px;
+  margin-top: 48px;
+}
+.footer-inner { max-width: var(--max-w); margin: 0 auto; }
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1.5fr;
+  gap: 32px;
+  margin-bottom: 32px;
+}
+.footer-brand .logo { margin-bottom: 12px; }
+.footer-brand p { font-size: 13px; color: var(--text-muted); line-height: 1.6; max-width: 280px; }
+.footer-col h4 {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  margin-bottom: 16px;
+  color: var(--text);
+}
+.footer-col a {
+  display: block;
+  font-size: 13px;
+  color: var(--text-muted);
+  padding: 4px 0;
+  transition: color .2s;
+}
+.footer-col a:hover { color: var(--text); }
+.footer-newsletter h4 {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  margin-bottom: 12px;
+}
+.footer-newsletter p { font-size: 13px; color: var(--text-muted); margin-bottom: 12px; }
+.newsletter-form { display: flex; gap: 8px; }
+.newsletter-form input {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 13px;
+  font-family: inherit;
+}
+.newsletter-form button {
+  background: var(--brand);
+  color: white;
+  padding: 8px 16px;
+  border-radius: var(--radius);
+  font-weight: 600;
+  font-size: 13px;
+}
+.footer-bottom {
+  border-top: 1px solid var(--border);
+  padding-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.footer-copy { font-size: 12px; color: var(--text-light); }
+.footer-pays { display: flex; gap: 8px; }
+.footer-pay {
+  font-size: 10px;
+  font-weight: 700;
+  background: white;
+  border: 1px solid var(--border);
+  padding: 4px 8px;
+  border-radius: 4px;
+  color: var(--text-muted);
+}
+.footer-links { display: flex; gap: 16px; }
+.footer-links a { font-size: 12px; color: var(--text-light); }
+.footer-links a:hover { color: var(--text-muted); text-decoration: underline; }
+
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .page-hero h1 { font-size: 24px; }
+  .page-hero { padding: 32px 16px; }
+  .contact-grid { grid-template-columns: 1fr; gap: 32px; }
+  .form-row { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
+}
+@media (max-width: 480px) {
+  .footer-grid { grid-template-columns: 1fr; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; }
+}
+</style>
+</head>
+<body>
+
+<div class="announce">
+  <strong>Livraison Gratuite</strong> en France  &bull; Satisfait ou Rembours&eacute; 30 Jours
+</div>
+
+<header class="header">
+  <div class="header-inner">
+    <div class="header-left">
+      <a href="/" class="logo">Maison<span>Chic</span></a>
+      <nav class="nav-links">
+        <a href="/">Accueil</a>
+        <a href="/products-catalogue/">Produits</a>
+        <a href="/a-propos/">Qui Sommes-Nous</a>
+        <a href="/contact/" class="active">Contact</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<section class="page-hero">
+  <h1>Contactez-Nous</h1>
+  <p>Une question sur votre commande, un produit ou notre service&nbsp;? Notre &eacute;quipe est &agrave; votre &eacute;coute.</p>
+</section>
+
+<div class="contact-grid">
+  <div>
+    <form class="contact-form" id="contactForm" onsubmit="document.getElementById('formSuccess').style.display='block';this.style.display='none';return false;">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="name">Nom complet</label>
+          <input type="text" id="name" name="name" placeholder="Jean Dupont" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Adresse email</label>
+          <input type="email" id="email" name="email" placeholder="jean@exemple.fr" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="subject">Sujet</label>
+        <select id="subject" name="subject" required>
+          <option value="" disabled selected>S&eacute;lectionnez un sujet</option>
+          <option value="commande">Question sur ma commande</option>
+          <option value="produit">Information produit</option>
+          <option value="retour">Retour ou remboursement</option>
+          <option value="livraison">Suivi de livraison</option>
+          <option value="autre">Autre demande</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" placeholder="D&eacute;crivez votre demande en d&eacute;tail..." required></textarea>
+      </div>
+      <button type="submit" class="form-submit">Envoyer le message</button>
+    </form>
+    <div class="form-success" id="formSuccess">
+      &#10003; Merci pour votre message&nbsp;! Notre &eacute;quipe vous r&eacute;pondra dans les plus brefs d&eacute;lais (sous 24h ouvr&eacute;es).
+    </div>
+  </div>
+
+  <div class="contact-sidebar">
+    <div class="info-card">
+      <h3>Nos coordonn&eacute;es</h3>
+      <div class="info-item">
+        <div class="info-icon">
+          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <div class="info-details">
+          <span class="info-label">Adresse</span>
+          <span class="info-value">2 Av. Flore<br>95500 Le Thillay, France</span>
+        </div>
+      </div>
+      <div class="info-item">
+        <div class="info-icon">
+          <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <div class="info-details">
+          <span class="info-label">Email</span>
+          <span class="info-value">contact@maisonchic.shop</span>
+        </div>
+      </div>
+      <div class="info-item">
+        <div class="info-icon">
+          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        </div>
+        <div class="info-details">
+          <span class="info-label">T&eacute;l&eacute;phone</span>
+          <span class="info-value">+33 1 51 91 51 14</span>
+        </div>
+      </div>
+      <div class="info-item">
+        <div class="info-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <div class="info-details">
+          <span class="info-label">Horaires</span>
+          <span class="info-value">Lun-Ven 9h-18h</span>
+        </div>
+      </div>
+    </div>
+    <div class="response-note">
+      <p><strong>D&eacute;lai de r&eacute;ponse</strong><br>Nous nous engageons &agrave; r&eacute;pondre &agrave; toutes les demandes sous <strong>24 heures ouvr&eacute;es</strong>. Pour les urgences li&eacute;es &agrave; une commande, merci de pr&eacute;ciser votre num&eacute;ro de commande.</p>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">Maison<span>Chic</span></div>
+        <p>Votre boutique en ligne d'&eacute;quipements maison, cuisine &amp; jardin. Des produits s&eacute;lectionn&eacute;s pour am&eacute;liorer votre quotidien, livr&eacute;s chez vous.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Boutique</h4>
+        <a href="/products-catalogue/">Tous nos produits</a>
+        <a href="/products-catalogue/">Cuisine</a>
+        <a href="/products-catalogue/">Maison</a>
+        <a href="/products-catalogue/">Jardin</a>
+      </div>
+      <div class="footer-col">
+        <h4>Informations</h4>
+        <a href="/a-propos/">Qui Sommes-Nous</a>
+        <a href="/policies/">Livraison &amp; Retours</a>
+        <a href="/contact/">Contactez-Nous</a>
+        <a href="/contact/">Suivre mon colis</a>
+      </div>
+      <div class="footer-newsletter">
+        <h4>Newsletter</h4>
+        <p>Inscrivez-vous pour recevoir nos offres exclusives.</p>
+        <form class="newsletter-form" onsubmit="this.querySelector('button').textContent='Merci !';return false">
+          <input type="email" placeholder="Votre email">
+          <button type="submit">OK</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">&copy; 2026 MaisonChic SARL &mdash; 2 Av. Flore, 95500 Le Thillay, France</span>
+      <div class="footer-pays">
+        <span class="footer-pay">VISA</span>
+        <span class="footer-pay">MC</span>
+        <span class="footer-pay">AMEX</span>
+        <span class="footer-pay">PayPal</span>
+        <span class="footer-pay">Apple Pay</span>
+      </div>
+      <div class="footer-links">
+        <a href="/policies/">CGV</a>
+        <a href="/policies/">Mentions l&eacute;gales</a>
+        <a href="/policies/">Confidentialit&eacute;</a>
+        <a href="/policies/">Remboursement</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
